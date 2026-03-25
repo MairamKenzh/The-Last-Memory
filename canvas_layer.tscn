@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bx4kuuwvugxdl"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.176
+anchor_bottom = 0.108
+offset_right = -35.264
+offset_bottom = -1.464
+
+[node name="Button" type="Button" parent="."]
+offset_left = 37.0
+offset_top = 28.0
+offset_right = 273.0
+offset_bottom = 112.0
+text = "play"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 132.0
+offset_right = 275.0
+offset_bottom = 208.0
+text = "text
+"

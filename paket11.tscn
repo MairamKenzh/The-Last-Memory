@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc4ssar6eqi88"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://objects/pickable.tscn" id="1_iocix"]
+[ext_resource type="PackedScene" uid="uid://b7deuhu2uimuf" path="res://упоковка.2.glb" id="2_bh14m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0c3l"]
+size = Vector3(0.21553, 0.685028, 0.254242)
+
+[node name="PickableObject" instance=ExtResource("1_iocix")]
+
+[node name="упоковка_2" parent="." index="0" instance=ExtResource("2_bh14m")]
+transform = Transform3D(1.59255, 0, 0, 0, 2.49722, 0, 0, 0, 2.47223, 0.010457, -0.207184, -0.0132718)
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00718758, 0.222343, 0.0112878)
+shape = SubResource("BoxShape3D_c0c3l")

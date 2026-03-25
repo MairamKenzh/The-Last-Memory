@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4tfgeej4y2ii"]
+
+[ext_resource type="Script" path="res://Mainscene1.gd" id="1_2b1kw"]
+[ext_resource type="PackedScene" uid="uid://bipo67s1l0aeq" path="res://Arsen.glb" id="1_jcsna"]
+[ext_resource type="PackedScene" uid="uid://broks6bya50l0" path="res://paket.tscn" id="2_22ef8"]
+[ext_resource type="Script" path="res://DirectionalLight3D.gd" id="2_uo3hu"]
+[ext_resource type="Script" path="res://WorldEnvironment.gd" id="3_nx4tv"]
+[ext_resource type="PackedScene" uid="uid://n2yrhnq1tacp" path="res://camera.tscn" id="3_te2er"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_ia3rl"]
+
+[sub_resource type="Environment" id="Environment_6unjx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c748n"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1o23a"]
+data = PackedVector3Array(-10, 0.05, 10, 10, 0.05, 10, -10, -0.05, 10, 10, 0.05, 10, 10, -0.05, 10, -10, -0.05, 10, 10, 0.05, -10, -10, 0.05, -10, 10, -0.05, -10, -10, 0.05, -10, -10, -0.05, -10, 10, -0.05, -10, 10, 0.05, 10, 10, 0.05, -10, 10, -0.05, 10, 10, 0.05, -10, 10, -0.05, -10, 10, -0.05, 10, -10, 0.05, -10, -10, 0.05, 10, -10, -0.05, -10, -10, 0.05, 10, -10, -0.05, 10, -10, -0.05, -10, 10, 0.05, 10, -10, 0.05, 10, 10, 0.05, -10, -10, 0.05, 10, -10, 0.05, -10, 10, 0.05, -10, -10, -0.05, 10, 10, -0.05, 10, -10, -0.05, -10, 10, -0.05, 10, 10, -0.05, -10, -10, -0.05, -10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qxpbn"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m2dfd"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_2b1kw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6unjx")
+script = ExtResource("3_nx4tv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+script = ExtResource("2_uo3hu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_c748n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1o23a")
+
+[node name="Arsen" parent="." instance=ExtResource("1_jcsna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512928, 0.0500002, 1.35488)
+
+[node name="PickableObject" parent="Arsen" instance=ExtResource("2_22ef8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6366, 1.10454, 3.0014)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arsen"]
+transform = Transform3D(0.344038, 0, 0, 0, 0.0570162, 0, 0, 0, 1.43326, -2.66096, 1.03646, 3.37013)
+mesh = SubResource("BoxMesh_qxpbn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Arsen/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arsen/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_m2dfd")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("3_te2er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3142, 1.28487, 3.89069)
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("4_ia3rl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15984, 0)

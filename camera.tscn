@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://n2yrhnq1tacp"]
+
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_0tnqp"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://functions/function_pickup.tscn" id="2_0b8gl"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_4tlom"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://functions/movement_direct.tscn" id="3_vrnsh"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="lefthand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0893042, 0, 0)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="lefthand" instance=ExtResource("1_0tnqp")]
+
+[node name="FunctionPickup" parent="lefthand" instance=ExtResource("2_0b8gl")]
+
+[node name="MovementDirect" parent="lefthand" instance=ExtResource("3_vrnsh")]
+max_speed = 2.0
+strafe = true
+
+[node name="righthand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0748959, 0, 0)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="righthand" instance=ExtResource("2_4tlom")]
+
+[node name="FunctionPickup" parent="righthand" instance=ExtResource("2_0b8gl")]
