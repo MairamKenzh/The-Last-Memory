@@ -69,7 +69,6 @@ The project explores the concept of memory as a living, interactive space. The p
 
 ## Screenshots of the project
 ![alt text](screenshots/image1.png)
-screenshots/image1.png
-screenshots/image2.png
-screenshots/image3.png
-screenshots/image4.png
+![alt text](screenshots/image2.png)
+![alt text](screenshots/image3.png)
+![alt text](screenshots/image4.png)
