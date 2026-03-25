@@ -68,3 +68,7 @@ The project explores the concept of memory as a living, interactive space. The p
 - Overall polish and user experience refinement
 
 ## Screenshots of the project
+screenshots/image1.png
+screenshots/image2.png
+screenshots/image3.png
+screenshots/image4.png
